@@ -1,3 +1,24 @@
+Project Template used:
+    https://todomvc.com/examples/react/#/
+    github repo forked: https://github.com/tastejs/todomvc/tree/gh-pages/examples/react
+
+Explanation
+    I implemented a tag feature that gives you the ability to be able to give your todo item a certain type. I also modified the sort feature to be able to see todo items by priorirty
+
+Possible areas of Improvement
+    * Code was hard to understand took me a while to know what was going on with the application to be able to add my improvements, I'm sure it could be refactored and written more clearly.
+
+    * Being able to set the priority intially instead of editing the priority could also be improved
+
+    * Could improve visually
+
+
+
+
+
+
+
+
 # React TodoMVC Example
 
 > React is a JavaScript library for creating user interfaces. Its core principles are declarative code, efficiency, and flexibility. Simply specify what your component looks like and React will keep it up-to-date when the underlying data changes.

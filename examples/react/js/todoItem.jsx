@@ -101,6 +101,16 @@ var app = app || {};
 						onChange={this.handleChange}
 						onKeyDown={this.handleKeyDown}
 					/>
+					{/* added code - select box for selecting a prioity tag */}
+					<label>
+						<small style= {{color:"purple"}}>Priority:	</small>
+						<select value={this.props.todo.tag} onChange={({ target: { value } }) => this.props.setTag(value)}>
+							<option value=""></option>
+							<option value="Low">Low</option>
+							<option value="Medium">Medium</option>
+							<option value="High">High</option>
+						</select>
+					</label>
 				</li>
 			);
 		}

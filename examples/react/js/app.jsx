@@ -11,6 +11,10 @@ var app = app || {};
 	app.ALL_TODOS = 'all';
 	app.ACTIVE_TODOS = 'active';
 	app.COMPLETED_TODOS = 'completed';
+	// added code
+	app.LOW_TODOS = 'low';
+	app.MED_TODOS = 'medium';
+	app.HIGH_TODOS = 'high';
 	var TodoFooter = app.TodoFooter;
 	var TodoItem = app.TodoItem;
 
@@ -30,7 +34,11 @@ var app = app || {};
 			var router = Router({
 				'/': setState.bind(this, {nowShowing: app.ALL_TODOS}),
 				'/active': setState.bind(this, {nowShowing: app.ACTIVE_TODOS}),
-				'/completed': setState.bind(this, {nowShowing: app.COMPLETED_TODOS})
+				'/completed': setState.bind(this, {nowShowing: app.COMPLETED_TODOS}),
+				// added code - to see certain tags
+				'/low': setState.bind(this, {nowShowing: app.LOW_TODOS}),
+				'/medium': setState.bind(this, {nowShowing: app.MED_TODOS}),
+				'/high': setState.bind(this, {nowShowing: app.HIGH_TODOS})
 			});
 			router.init('/');
 		},
@@ -76,6 +84,12 @@ var app = app || {};
 			this.setState({editing: null});
 		},
 
+		// added code - used to 
+		setTag: function (todoToSave, tag) {
+			this.props.model.setTag(todoToSave, tag);
+			this.setState({editing: null});
+		},
+
 		cancel: function () {
 			this.setState({editing: null});
 		},
@@ -95,6 +109,13 @@ var app = app || {};
 					return !todo.completed;
 				case app.COMPLETED_TODOS:
 					return todo.completed;
+				// added code
+				case app.LOW_TODOS:
+					return todo.tag === "Low";
+				case app.MED_TODOS:
+					return todo.tag === "Medium";
+				case app.HIGH_TODOS:
+					return todo.tag === "High";
 				default:
 					return true;
 				}
@@ -110,6 +131,8 @@ var app = app || {};
 						onEdit={this.edit.bind(this, todo)}
 						editing={this.state.editing === todo.id}
 						onSave={this.save.bind(this, todo)}
+						// added code - used to snd props to todoItem 
+						setTag={this.setTag.bind(this, todo)}
 						onCancel={this.cancel}
 					/>
 				);

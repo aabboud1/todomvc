@@ -53,6 +53,29 @@ var app = app || {};
 									Completed
 							</a>
 						</li>
+						{/* added code */}
+						<li>
+							<a
+								href="#/low"
+								className={classNames({selected: nowShowing === app.LOW_TODOS})}>
+									Low
+							</a>
+						</li>
+						{' '}
+						<li>
+							<a
+								href="#/medium"
+								className={classNames({selected: nowShowing === app.MED_TODOS})}>
+									Medium
+							</a>
+						</li>
+						<li>
+							<a
+								href="#/high"
+								className={classNames({selected: nowShowing === app.HIGH_TODOS})}>
+									High
+							</a>
+						</li>
 					</ul>
 					{clearButton}
 				</footer>
